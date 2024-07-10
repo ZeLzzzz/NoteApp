@@ -3,6 +3,6 @@
 
     </div>
     <div class="select-none capitalize">
-        <h1 class="">{{ Route::currentRouteName() }}</h1>
+        {{ Breadcrumbs::render() }}
     </div>
 </nav>

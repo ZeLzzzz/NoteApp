@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\Auth\EmailResetController;
 use App\Http\Controllers\auth\EmailVerification;
 use App\Http\Controllers\auth\PasswordResetController;
 use App\Http\Controllers\CompanyController;
@@ -49,17 +48,20 @@ Route::middleware('auth')->group(function () {
         ->name('verification.resend');
 
     //Route account
-    Route::get('/account', [ AccountController::class, 'index' ])->name('Profile Information');
+    Route::get('/account', [ AccountController::class, 'index' ])->name('account.index');
     Route::post('/account/update', [ AccountController::class, 'updateaccount' ])->name('account.update');
 
     //Route Company
-    Route::get('/company', [ CompanyController::class, 'index' ])->name('Company Information');
+    Route::get('/company', [ CompanyController::class, 'index' ])->name('company.index');
 
     //Route dashboard
     Route::middleware([ 'user:P', 'verified' ])->group(function () {
         Route::get('/admin', function () {
             return view('dashboard');
         })->name('dashboard');
+
+        //Route company update
+        Route::post('/company/update', [ CompanyController::class, 'updatecompany' ])->name('company.update');
     });
     Route::middleware([ 'user:C', 'verified' ])->group(function () {
         Route::get('/user', function () {

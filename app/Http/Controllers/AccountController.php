@@ -41,7 +41,7 @@ class AccountController extends Controller
         $user->username = $request->username;
         $user->update();
 
-        return redirect()->route('Profile Information')->with('success', 'Personal information updated successfully');
+        return redirect()->back()->with('success', 'Personal information updated successfully');
     }
 
     /**
