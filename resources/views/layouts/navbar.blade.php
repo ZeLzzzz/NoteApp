@@ -41,7 +41,11 @@
             </div>
             <button class="md:flex md:justify-center md:items-center md:border md:border-gray-300 md:rounded-lg md:py-1 md:px-3 md:hover:bg-gray-50 md:hover:border-blue-300" @click="dropDownUser = !dropDownUser">
                 <p class="hidden md:block md:mr-4">{{ Auth::user()->username }}</p>
-                <img class="rounded-full size-9" src="{{ asset('storage/images/pp.png') }}" alt="">
+                @if (Auth::user()->photo_profile == null)
+                    <img class="rounded-full size-9" src="{{ asset('storage/images/default.png') }}" alt="">
+                @else
+                    <img class="rounded-full size-9" src="{{ asset('storage/images/' . Auth::user()->photo_profile) }}" alt="">
+                @endif
             </button>
             <div @click.away="dropDownUser = false" x-show="dropDownUser" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute top-14 right-0 py-1 bg-white rounded-md shadow-lg z-50"
                 style="width: max-content; max-width: 100%; right: 0;">
@@ -62,9 +66,13 @@
                                         <span class="sr-only">Close modal</span>
                                     </button>
                                 </div>
-                                <div class="p-4 md:p-5 flex items-center">
-                                    <div>
-                                        <img src="{{ asset('storage/images/pp.png') }}" alt="" class="rounded-full m-2">
+                                <div class="p-4 md:p-5 md:flex items-center">
+                                    <div class="flex justify-center">
+                                        @if (Auth::user()->photo_profile == null)
+                                            <img class="rounded-full m-2" src="{{ asset('storage/images/default.png') }}" alt="">
+                                        @else
+                                            <img src="{{ asset('storage/images/' . Auth::user()->photo_profile) }}" alt="" class="rounded-full m-2">
+                                        @endif
                                     </div>
                                     <div class="flex flex-col">
                                         <p class="text-4xl leading-relaxed text-black mx-2 font-bold">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>

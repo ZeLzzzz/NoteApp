@@ -5,7 +5,7 @@ use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
 Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail): void {
-    $trail->push('Page', route('home'));
+    $trail->push('Home', route('home'));
 });
 
 Breadcrumbs::for('account.index', function (BreadcrumbTrail $trail): void {

@@ -12,7 +12,11 @@
             <div class="shadow-sm p-6 w-full max-w-full md:max-w-[65%] xl:max-w-[70%] rounded-lg bg-white mb-4">
                 <div class="sm:flex">
                     <div class="flex justify-center items-center">
-                        <img class="rounded-full w-26 h-auto md:size-42" src="{{ asset('storage/images/pp.png') }}" alt="">
+                        @if (Auth::user()->photo_profile == null)
+                            <img class="rounded-full size-26 md:size-42" src="{{ asset('storage/images/default.png') }}" alt="">
+                        @else
+                            <img class="rounded-full w-26 h-auto md:size-42" src="{{ asset('storage/images/' . Auth::user()->photo_profile) }}" alt="">
+                        @endif
                     </div>
                     <div class="flex flex-col justify-center items-center mt-5 sm:mt-0 sm:ml-5 sm:w-full md:w-[40%] lg:w-[35%] xl:w-[25%]">
                         <div>
