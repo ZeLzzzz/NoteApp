@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="min-h-screen flex items-stretch text-white">
+    <main class="min-h-screen flex items-stretch text-white">
         <div class="lg:flex w-1/2 hidden bg-no-repeat bg-cover relative" style="background-image: url({{ asset('storage/images/8-cfxX12xl3V9bi3g.png') }});">
             <div class="absolute bg-black opacity-40 inset-0 z-0"></div>
             <div class="w-full px-12 z-10 mt-12">
@@ -43,5 +43,5 @@
                 </form>
             </div>
         </div>
-    </section>
+    </main>
 @endsection

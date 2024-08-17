@@ -109,8 +109,7 @@
                                         </div>
                                     </div>
                                     <div class="flex items-center justify-end p-2 md:p-3 border-t border-gray-200 rounded-b gap-2">
-                                        <button type="button" @click="EditPersonalInfo = !EditPersonalInfo" class="bg-red-500 hover:bg-red-700 text-white text-sm py-2 px-4 rounded">Cancel</button>
-                                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded" href="">Save</button>
+                                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-md py-2 px-5 rounded-lg" href="">Save</button>
                                     </div>
                                 </form>
                             </div>

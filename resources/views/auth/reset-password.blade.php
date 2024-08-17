@@ -36,7 +36,7 @@
                     </div>
                     <div class="text-right hover:text-gray-300 text-sm sm:text-base lg:text-base xl:text-lg lg:text-gray-600 lg:hover:text-gray-500 hover:underline">
                         @auth
-                            <a href="{{ route('Profile Information') }}">Back to Personal Info</a>
+                            <a href="{{ route('account.index') }}">Back to Personal Info</a>
                         @else
                             <a href="{{ route('login') }}">Back to Login page ?</a>
                         @endauth

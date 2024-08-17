@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 
@@ -37,15 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', [ HomeController::class, 'home' ])->name('home');
 
     //Route email verification
-    Route::get('/email/verify', [ EmailVerification::class, 'index' ])
-        ->middleware('emailVerifyAccess')
-        ->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', [ EmailVerification::class, 'verifemail' ])
-        ->middleware('signed')
-        ->name('verification.verify');
-    Route::post('/email/verification-notification', [ EmailVerification::class, 'resendemail' ])
-        ->middleware('throttle:6,1')
-        ->name('verification.resend');
+    Route::get('/email/verify', [ EmailVerification::class, 'index' ])->middleware('emailVerifyAccess')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [ EmailVerification::class, 'verifemail' ])->middleware('signed')->name('verification.verify');
+    Route::post('/email/verification-notification', [ EmailVerification::class, 'resendemail' ])->middleware('throttle:6,1')->name('verification.resend');
 
     //Route account
     Route::get('/account', [ AccountController::class, 'index' ])->name('account.index');
@@ -57,7 +52,8 @@ Route::middleware('auth')->group(function () {
     //Route dashboard
     Route::middleware([ 'user:P', 'verified' ])->group(function () {
         Route::get('/admin', function () {
-            return view('dashboard');
+            $user = User::all();
+            return view('dashboard', compact('user'));
         })->name('dashboard');
 
         //Route company update

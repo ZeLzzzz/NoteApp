@@ -27,7 +27,7 @@
                             </div>
                             <div class="p-4 md:p-5 items-center">
                                 <div class="flex flex-col">
-                                    <p class="text-3xl leading-relaxed text-black mx-2 font-bold">{{ Auth::user()->company->company_name }}</p>
+                                    <p class="text-2xl md:text-4xl leading-relaxed text-black mx-2 font-bold">{{ Auth::user()->company->company_name }}</p>
                                     <p class="text-sm leading-relaxed text-gray-500 mx-2 mb-4">Created by: {{ Auth::user()->company->createUser->first_name }}</p>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                         @endif
                                     </div>
                                     <div class="flex flex-col">
-                                        <p class="text-4xl leading-relaxed text-black mx-2 font-bold">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
+                                        <p class="text-2xl md:text-4xl leading-relaxed text-black mx-2 font-bold">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
                                         <p class="text-sm leading-relaxed text-gray-500 mx-2 mb-4">{{ Auth::user()->username }}</p>
                                         @if (Auth::user()->type == 'P')
                                             <p class="text-sm leading-relaxed text-gray-500 mx-2">You are the one who built the company <a href="{{ route('company.index') }}" class="text-blue-500 hover:underline">{{ Auth::user()->company->company_name }}</a></p>
