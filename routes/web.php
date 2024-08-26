@@ -7,8 +7,10 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+
 
 
 //Route logout
@@ -36,6 +38,9 @@ Route::middleware([ 'guest' ])->group(function () {
 Route::middleware('auth')->group(function () {
     //Route home
     Route::get('/home', [ HomeController::class, 'home' ])->name('home');
+
+    //User index
+    Route::get('/users', [ UserController::class, 'index' ])->name('users.index');
 
     //Route email verification
     Route::get('/email/verify', [ EmailVerification::class, 'index' ])->middleware('emailVerifyAccess')->name('verification.notice');

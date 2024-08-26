@@ -18,3 +18,8 @@ Breadcrumbs::for('company.index', function (BreadcrumbTrail $trail): void {
 
     $trail->push('Company Information', route('company.index'));
 });
+Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail): void {
+    $trail->parent('dashboard');
+
+    $trail->push('Users', route('users.index'));
+});
