@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 
     //Route dashboard
     Route::middleware([ 'user:P', 'verified' ])->group(function () {
+        Route::post('/users/{id}', [ UserController::class, 'destroy' ])->name('users.destroy');
         Route::get('/admin', function () {
             $user = User::all();
             return view('dashboard', compact('user'));

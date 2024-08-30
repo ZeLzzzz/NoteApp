@@ -25,18 +25,6 @@
                                 join in
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Accessories
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Available
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Price
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Weight
-                            </th>
-                            <th scope="col" class="px-6 py-3">
                                 Action
                             </th>
                         </tr>
@@ -61,28 +49,23 @@
                                 <td class="px-6 py-4">
                                     {{ formatPhoneNumber($item->telepon) }}
                                 </td>
-                                <td class="px-6 py-4">
+                                <th class="px-6 py-4">
                                     @if ($item->email_verified_at == null)
                                         this user is not joined
                                     @else
                                         {{ $item->email_verified_at->format('d M Y') }}
                                     @endif
-                                </td>
+                                </th>
                                 <td class="px-6 py-4">
-                                    Yes
-                                </td>
-                                <td class="px-6 py-4">
-                                    Yes
-                                </td>
-                                <td class="px-6 py-4">
-                                    $2999
-                                </td>
-                                <td class="px-6 py-4">
-                                    3.0 lb.
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="font-medium text-red-600 hover:underline ms-3">Remove</a>
+                                    @if (auth()->user()->username == $item->username)
+                                        <a href="{{ route('account.index') }}" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                    @else
+                                        <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
+                                        <form action="{{ route('users.destroy', $item->id) }}" method="POST" class="inline">
+                                            @csrf
+                                            <button type="submit" class="font-medium text-red-600 hover:underline ms-3">Remove</button>
+                                        </form>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
