@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Company::create([ 
+        Company::create([
             'company_name' => 'PT.Ajel Teknologi Indonesia',
             'npwp_number' => '9283564787656789',
             'expired_date' => '2026-02-02',
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
             'update_user' => 1,
         ]);
 
-        Devision::create([ 
+        Devision::create([
             'division_name' => 'IT Support',
             'company_id' => 1,
             'status' => 'A',
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'update_user' => 1,
         ]);
 
-        User::create([ 
+        User::create([
             'first_name' => 'Hazel',
             'last_name' => 'Avriel Fauzan',
             'username' => 'TheCandyy111',
@@ -48,13 +48,29 @@ class DatabaseSeeder extends Seeder
             'update_user' => 1,
         ]);
 
-        User::create([ 
-            'first_name' => 'Faris',
-            'last_name' => 'Raufullah',
+        User::create([
+            'first_name' => 'Fachri',
+            'last_name' => 'Ramadhan',
             'username' => 'Moonlight',
             'photo_profile' => null,
-            'email' => 'roup@gmail.com',
+            'email' => 'fachri@gmail.com',
             'telepon' => '086765455445',
+            'division_id' => null,
+            'company_id' => 1,
+            'type' => 'C',
+            'status' => 'A',
+            'password' => bcrypt('12345678'),
+            'create_user' => 1,
+            'update_user' => 1,
+        ]);
+
+        User::create([
+            'first_name' => 'Faris',
+            'last_name' => 'Raufullah',
+            'username' => 'Parii!!',
+            'photo_profile' => 'pacarrouf.jpg',
+            'email' => 'rouf2007@gmail.com',
+            'telepon' => '087986477533',
             'division_id' => null,
             'company_id' => 1,
             'type' => 'C',
