@@ -1,7 +1,5 @@
 <div align="center">
-
-<h1>
-<img src="https://github.com/Zain-ul-din/whatsapp-ai-bot/assets/78583049/d31339cf-b4ae-450e-95b9-53d21e4641a0" width="35" height="35"/>NoteApp witf Laravel</h1>
+<h1>NoteApp witf Laravel</h1>
 </div>
 
 # Usage
