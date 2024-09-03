@@ -18,17 +18,11 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [ 
-        'name',
+        'username',
         'email',
         'password',
         'photo_profile',
         'email_verified_at',
-        'division_id',
-        'company_id',
-        'type',
-        'status',
-        'create_user',
-        'update_user',
     ];
 
     /**
@@ -52,10 +46,5 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
-    }
-
-    public function company()
-    {
-        return $this->belongsTo(Company::class, 'company_id');
     }
 }

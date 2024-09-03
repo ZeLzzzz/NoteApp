@@ -1,0 +1,12 @@
+@extends('layouts.app')
+
+
+@section('content')
+    <div class="flex justify-center items-center h-screen">
+        <div class="text-center">
+            <h1 class="text-4xl font-medium">403</h1>
+            <p class="text-xl font-medium m-6">Sorry, you don't have permission to access this page</p>
+            <a href="{{ route('home') }}" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Go Home</a>
+        </div>
+    </div>
+@endsection

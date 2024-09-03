@@ -13,7 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([ 
             'user' => App\Http\Middleware\UserAccess::class,
-            'emailVerifyAccess' => App\Http\Middleware\EmailVerifyAccess::class
+            'emailVerifyAccess' => App\Http\Middleware\EmailVerifyAccess::class,
+            'noteAccess' => App\Http\Middleware\NoteAccess::class
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

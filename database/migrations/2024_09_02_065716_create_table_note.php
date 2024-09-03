@@ -10,13 +10,12 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('devisions', function (Blueprint $table) {
+        Schema::create('note', function (Blueprint $table) {
             $table->id();
-            $table->string('division_name');
-            $table->unsignedBigInteger('company_id');
-            $table->string('status')->default('A');
-            $table->string('create_user')->nullable();
-            $table->string('update_user')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->string('slug');
+            $table->string('title');
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('devisions');
+        Schema::dropIfExists('note');
     }
 };

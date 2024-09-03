@@ -13,13 +13,9 @@ Breadcrumbs::for('account.index', function (BreadcrumbTrail $trail): void {
 
     $trail->push('Account Information', route('account.index'));
 });
-Breadcrumbs::for('company.index', function (BreadcrumbTrail $trail): void {
+Breadcrumbs::for('note.show', function (BreadcrumbTrail $trail, $slug): void {
     $trail->parent('dashboard');
 
-    $trail->push('Company Information', route('company.index'));
-});
-Breadcrumbs::for('users.index', function (BreadcrumbTrail $trail): void {
-    $trail->parent('dashboard');
-
-    $trail->push('Users', route('users.index'));
+    $title = session('title', $slug);
+    $trail->push($title, route('note.show', [ 'slug' => $slug ]));
 });

@@ -20,14 +20,6 @@
                     <div class="flex justify-start">
                         <label class="text-white lg:text-black text-lg md:text-xl">Personal Info</label>
                     </div>
-                    <div class="pb-1 pt-4 flex justify-between gap-2">
-                        <div class="w-1/2">
-                            <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="text" name="first_name" id="first_name" placeholder="First name" required>
-                        </div>
-                        <div class="w-1/2">
-                            <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="text" name="last_name" id="last_name" placeholder="last name" required>
-                        </div>
-                    </div>
                     <div class="pb-1 pt-4">
                         <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="text" name="username" id="username" placeholder="Username" required>
                     </div>
@@ -35,16 +27,13 @@
                         <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="email" name="email" id="email" placeholder="Email" required>
                     </div>
                     <div class="pb-1 pt-4">
+                        <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="number" name="telepon" id="telepon" placeholder="Phone number" required>
+                    </div>
+                    <div class="pb-1 pt-4">
                         <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="password" name="password" id="password" placeholder="Password" required>
                     </div>
                     <div class="pb-1 pt-4">
                         <input class="block w-full border border-gray-400 p-3 md:p-4 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password" required>
-                    </div>
-                    <div class="flex justify-start">
-                        <label class="mt-4 text-white lg:text-black text-lg md:text-xl">Company Info</label>
-                    </div>
-                    <div class="pt-4 mb-2 md:flex">
-                        <input type="text" name="company_name" id="company_name" placeholder="Company name" class="focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500 border border-gray-400 md:mb-0 block w-full md:mr-1 p-3 md:p-4 text-xs md:text-lg rounded-lg" required>
                     </div>
                     <div class="text-right text-white hover:text-gray-300 lg:text-gray-600 lg:hover:text-gray-500 hover:underline">
                         <a class="text-sm sm:text-base lg:text-base xl:text-lg" href="{{ route('login') }}">Have account ?</a>

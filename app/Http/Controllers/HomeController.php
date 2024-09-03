@@ -11,12 +11,12 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        if ($user->type == 'P') {
+        if ($user) {
             return redirect()->route('dashboard');
-        } elseif ($user->type == 'C') {
-            return redirect()->route('welcome');
         } else {
             Auth::logout();
+            // Menghapus semua session
+            session()->flush();
             return redirect()->route('login')->withErrors([ 'notvalid,' => 'Login details are not valid' ]);
         }
     }

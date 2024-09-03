@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Company;
 use App\Models\Devision;
+use App\Models\note;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -15,69 +16,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Company::create([
-            'company_name' => 'PT.Ajel Teknologi Indonesia',
-            'npwp_number' => '9283564787656789',
-            'expired_date' => '2026-02-02',
-            'status' => 'A',
-            'create_user' => 1,
-            'update_user' => 1,
-        ]);
-
-        Devision::create([
-            'division_name' => 'IT Support',
-            'company_id' => 1,
-            'status' => 'A',
-            'create_user' => 1,
-            'update_user' => 1,
-        ]);
-
         User::create([
-            'first_name' => 'Hazel',
-            'last_name' => 'Avriel Fauzan',
             'username' => 'TheCandyy111',
             'photo_profile' => 'pp.png',
             'email' => 'ajel@gmail.com',
             'telepon' => '087827563203',
-            'division_id' => null,
-            'company_id' => 1,
-            'type' => 'P',
-            'status' => 'A',
             'password' => bcrypt('12345678'),
-            'create_user' => 1,
-            'update_user' => 1,
         ]);
 
         User::create([
-            'first_name' => 'Fachri',
-            'last_name' => 'Ramadhan',
             'username' => 'Moonlight',
             'photo_profile' => null,
             'email' => 'fachri@gmail.com',
             'telepon' => '086765455445',
-            'division_id' => null,
-            'company_id' => 1,
-            'type' => 'C',
-            'status' => 'A',
             'password' => bcrypt('12345678'),
-            'create_user' => 1,
-            'update_user' => 1,
         ]);
 
         User::create([
-            'first_name' => 'Faris',
-            'last_name' => 'Raufullah',
             'username' => 'Parii!!',
             'photo_profile' => 'pacarrouf.jpg',
             'email' => 'rouf2007@gmail.com',
             'telepon' => '087986477533',
-            'division_id' => null,
-            'company_id' => 1,
-            'type' => 'C',
-            'status' => 'A',
             'password' => bcrypt('12345678'),
-            'create_user' => 1,
-            'update_user' => 1,
         ]);
     }
 }

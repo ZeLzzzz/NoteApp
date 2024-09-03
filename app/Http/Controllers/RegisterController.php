@@ -32,45 +32,18 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([ 
-            "first_name" => "required|string",
-            "last_name" => "required|string",
-            "email" => "required|email|unique:users",
+        $request->validate([
             "username" => "required|string|unique:users",
+            "telepon" => "required|numeric|unique:users",
+            "email" => "required|email|unique:users",
             "password" => "required|string|confirmed",
-            "company_name" => "required|string",
         ]);
-
-        $company = new Company();
-        $company->company_name = $request->company_name;
-        $company->npwp_number = null;
-        $company->expired_date = now()->addDays(30);
-        $company->status = "A";
-        $company->create_user = null;
-        $company->update_user = null;
-        $company->save();
-
         $user = new User();
-        $user->first_name = $request->first_name;
-        $user->last_name = $request->last_name;
         $user->username = $request->username;
         $user->email = $request->email;
+        $user->telepon = $request->telepon;
         $user->password = $request->password;
-        $user->division_id = null;
-        $user->company_id = $company->id;
-        $user->type = "P";
-        $user->status = "A";
-        $user->create_user = null;
-        $user->update_user = null;
         $user->save();
-
-        $company->create_user = $user->id;
-        $company->save();
-
-        $user->create_user = $user->id;
-        $user->save();
-
-        event(new Registered($user));
 
         Auth::login($user);
         return redirect()->route("login");

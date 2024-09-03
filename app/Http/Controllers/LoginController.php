@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use Illuminate\Http\RedirectResponse;
 
 class LoginController extends Controller
 {
@@ -30,7 +31,7 @@ class LoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (auth()->attempt([ 'email' => $request[ 'email' ], 'password' => $request[ 'password' ] ])) {
+        if (Auth::attempt([ 'email' => $request[ 'email' ], 'password' => $request[ 'password' ] ])) {
             return redirect()->route('home');
         } else {
             return back()->withErrors([ 'errors' => 'Wrong username or password' ]);
@@ -39,7 +40,7 @@ class LoginController extends Controller
 
     public function logout(): RedirectResponse
     {
-        auth()->logout();
+        Auth::logout();
         return redirect()->route('login')->with('success', 'Logout successfully');
     }
 }

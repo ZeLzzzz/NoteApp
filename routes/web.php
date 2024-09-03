@@ -6,11 +6,12 @@ use App\Http\Controllers\auth\PasswordResetController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NoteController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
+use App\Models\note;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
 
 
 //Route logout
@@ -39,9 +40,6 @@ Route::middleware('auth')->group(function () {
     //Route home
     Route::get('/home', [ HomeController::class, 'home' ])->name('home');
 
-    //User index
-    Route::get('/users', [ UserController::class, 'index' ])->name('users.index');
-
     //Route email verification
     Route::get('/email/verify', [ EmailVerification::class, 'index' ])->middleware('emailVerifyAccess')->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', [ EmailVerification::class, 'verifemail' ])->middleware('signed')->name('verification.verify');
@@ -51,23 +49,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/account', [ AccountController::class, 'index' ])->name('account.index');
     Route::post('/account/update', [ AccountController::class, 'updateaccount' ])->name('account.update');
 
-    //Route Company
-    Route::get('/company', [ CompanyController::class, 'index' ])->name('company.index');
-
     //Route dashboard
-    Route::middleware([ 'user:P', 'verified' ])->group(function () {
-        Route::post('/users/{id}', [ UserController::class, 'destroy' ])->name('users.destroy');
-        Route::get('/admin', function () {
-            $user = User::all();
-            return view('dashboard', compact('user'));
-        })->name('dashboard');
+    Route::middleware([ 'verified' ])->group(function () {
+        Route::post('/note/store', [ NoteController::class, 'store' ])->name('note.store');
+        Route::get('/note/{slug}', [ NoteController::class, 'show' ])->name('note.show')->middleware('noteAccess');
+        Route::post('/note/update/{slug}', [ NoteController::class, 'update' ])->name('note.update');
+        Route::post('/note/destroy/{slug}', [ NoteController::class, 'destroy' ])->name('note.destroy');
 
-        //Route company update
-        Route::post('/company/update', [ CompanyController::class, 'updatecompany' ])->name('company.update');
-    });
-    Route::middleware([ 'user:C', 'verified' ])->group(function () {
-        Route::get('/user', function () {
-            return view('welcome');
-        })->name('welcome');
+        Route::get('/dashboard', function () {
+            $note = note::all();
+            return view('dashboard', compact('note'));
+        })->name('dashboard');
     });
 });

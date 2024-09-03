@@ -38,20 +38,6 @@
                     <button class="w-full h-auto hover:bg-gray-100" @click="EditPersonalInfo = !EditPersonalInfo">
                         <div class="flex px-4 py-4 text-start items-center">
                             <div class="w-full h-auto">
-                                <p class="text-sm text-gray-600">Full name</p>
-                            </div>
-                            <div class="w-full h-auto">
-                                <p>{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</p>
-                            </div>
-                            <div class="w-full h-auto"></div>
-                            <div class="w-auto h-auto">
-                                <i class="bi bi-chevron-right"></i>
-                            </div>
-                        </div>
-                    </button>
-                    <button class="w-full h-auto hover:bg-gray-100" @click="EditPersonalInfo = !EditPersonalInfo">
-                        <div class="flex px-4 py-4 text-start items-center">
-                            <div class="w-full h-auto">
                                 <p class="text-sm text-gray-600">Username</p>
                             </div>
                             <div class="w-full h-auto">
@@ -82,22 +68,6 @@
                                     @csrf
                                     <div class="p-4 md:p-5 items-center">
                                         <div class="flex flex-col">
-                                            <div class="mb-2">
-                                                <div class="mb-2">
-                                                    <label for="first_name">First name</label>
-                                                </div>
-                                                <div>
-                                                    <input type="text" name="first_name" id="first_name" placeholder="First name" class="text-black block w-full border border-gray-400 p-3 md:p-3 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" value="{{ Auth::user()->first_name }}" required>
-                                                </div>
-                                            </div>
-                                            <div class="mb-2">
-                                                <div class="mb-2">
-                                                    <label for="last_name">First name</label>
-                                                </div>
-                                                <div>
-                                                    <input type="text" name="last_name" id="last_name" placeholder="Last name" class="text-black block w-full border border-gray-400 p-3 md:p-3 text-xs md:text-lg rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 caret-blue-500" value="{{ Auth::user()->last_name }}" required>
-                                                </div>
-                                            </div>
                                             <div class="mb-2">
                                                 <div class="mb-2">
                                                     <label for="username">Username</label>
