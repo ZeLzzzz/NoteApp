@@ -1,5 +1,5 @@
 <div align="center">
-<h1>NoteApp witf Laravel</h1>
+<h1>NoteApp with Laravel</h1>
 </div>
 
 # Usage
